@@ -1,4 +1,7 @@
 # sage-maker-endpoint-docker
+
+to deploy 
+
 region=${region:-us-east-1}
 account=$(aws sts get-caller-identity --query Account --output text)
 algorithm_name=sm-pretrained-spacy
