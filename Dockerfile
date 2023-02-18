@@ -14,7 +14,9 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && \
 
 #pre-trained model package installation
 RUN pip install spacy
-RUN python -m spacy download en
+RUN pip install tensorflow 
+RUN pip install "h5py==2.10.0"
+#RUN python -m spacy download en
 
 
 # Set some environment variables. PYTHONUNBUFFERED keeps Python from buffering our standard

@@ -3,7 +3,7 @@
 
 
 content_type = "application/json"
-request_body = {"input": "This is a test with NER in America with Amazon and Microsoft in Seattle, writing random stuff."}
+request_body = '{"instances": [1.0,2.0,5.0]}'
 endpoint_name = 'youree-dev-sage-endpoint'
 print('Endpoint name: ' + endpoint_name)
 
