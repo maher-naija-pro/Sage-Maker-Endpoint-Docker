@@ -3,7 +3,8 @@
 
 
 content_type = "application/json"
-request_body = '{"instances": [1.0,2.0,5.0]}'
+request_body = {"input": [1,2,3,4,5]}
+#request_body = '[1.0,2.0,5.0]'
 endpoint_name = 'youree-dev-sage-endpoint'
 print('Endpoint name: ' + endpoint_name)
 
