@@ -59,11 +59,6 @@ To get started, follow these steps:
    `cmd`
    ### Examples
    ### Env_Vars
-| ENV VAR Name | Description | Values | 
-|--------------|:-----------:|:------:|
-|  SECRET_KEY         |    User acces key value to auth to api |xxxx
-|  ACCESS_KEY         |    User secret key value to auth to api|xxxx
-
 
    ### Help
 
@@ -75,6 +70,18 @@ To get started, follow these steps:
 
 ## Deployment
 ---
+region=${region:-us-east-1}\
+account=$(aws sts get-caller-identity --query Account --output text)\
+algorithm_name=sm-pretrained-spacy\
+account=$(aws sts get-caller-identity --query Account --output text)\
+
+
+
+aws ecr get-login-password --region $region|docker login --username AWS --password-stdin ${fullname}\
+docker build  --platform linux/amd64 -t ${algorithm_name} \
+docker tag ${algorithm_name} ${fullname} \
+docker push ${fullname} \
+
 ### Build
 
 ## Documentation
@@ -93,22 +100,3 @@ This project is licensed under the [MIT License](LICENSE).
 ### Contact_Information
  E-mail: maher.naija@gmail.com
 
-
-
-   
-
-
-
-To deploy the docker image to ECR:
-
-region=${region:-us-east-1}\
-account=$(aws sts get-caller-identity --query Account --output text)\
-algorithm_name=sm-pretrained-spacy\
-account=$(aws sts get-caller-identity --query Account --output text)\
-
-
-
-aws ecr get-login-password --region $region|docker login --username AWS --password-stdin ${fullname}\
- docker build  --platform linux/amd64 -t ${algorithm_name} \
- docker tag ${algorithm_name} ${fullname} \
- docker push ${fullname} \
